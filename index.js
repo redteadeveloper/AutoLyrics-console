@@ -1,16 +1,13 @@
 const mp3tag = require('node-id3')
 const ftl = require('findthelyrics')
 const readline = require('readline');
-const fs = require('fs');
 
 const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
+    input: process.stdin,
+    output: process.stdout
 });
 
-var obj = JSON.parse(fs.readFileSync('./settings.json', 'utf8'));
-
-console.log(`\nGenius key input: ${obj.geniuskey}\n`)
+console.log("\nWelcome to AutoLyrics!\n")
 
 rl.question("Enter path of mp3 file: ", function(filepath) {
     rl.question("Enter title of song: ", function(title) {
@@ -42,7 +39,8 @@ rl.question("Enter path of mp3 file: ", function(filepath) {
                     process.exit(0);
 
                 } else {
-                    console.log(err)
+                    console.log("\nCouldn't find lyrics\n")
+                    process.exit(0)
                 }
             })     
         });
