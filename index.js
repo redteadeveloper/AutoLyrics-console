@@ -7,6 +7,25 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function exitapp() {
+    console.log("\nThank you for using AutoLyrics!")
+    process.stdout.write("Exiting in 3 seconds...");
+    await delay(1000)
+    process.stdout.clearLine();
+    process.stdout.cursorTo(0);
+    process.stdout.write("Exiting in 2 seconds...");
+    await delay(1000)
+    process.stdout.clearLine();
+    process.stdout.cursorTo(0);
+    process.stdout.write("Exiting in 1 second...");
+    await delay(1000)
+    rl.close()
+}
+
 console.log("\nWelcome to AutoLyrics!\n")
 
 rl.question("Enter path of mp3 file: ", function(filepath) {
@@ -15,7 +34,7 @@ rl.question("Enter path of mp3 file: ", function(filepath) {
 
             console.log("\nPlease wait a moment...")
 
-            ftl.find(artist, title, function(err, resp) {
+            ftl.find(artist, title, async function(err, resp) {
 
                 if (!err) {
 
@@ -35,14 +54,17 @@ rl.question("Enter path of mp3 file: ", function(filepath) {
                         console.log("\n" + error)
                     }
         
-                    console.log("\nThank you for using AutoLyrics!\n");
-                    process.exit(0);
+                    exitapp()
 
                 } else {
-                    console.log("\nCouldn't find lyrics\n")
-                    process.exit(0)
+                    console.log("\nCouldn't find lyrics.")
+                    exitapp()
                 }
             })     
         });
     });
 });
+
+rl.on("close", function() {
+    process.exit(0)
+})
