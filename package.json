@@ -1,0 +1,23 @@
+{
+  "name": "autolyrics",
+  "version": "0.0.1",
+  "description": "Auto lyrics adder for mp3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/redteadeveloper/AutoLyrics.git"
+  },
+  "author": "redteadeveloper",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/redteadeveloper/AutoLyrics/issues"
+  },
+  "homepage": "https://github.com/redteadeveloper/AutoLyrics#readme",
+  "dependencies": {
+    "findthelyrics": "^1.0.7",
+    "node-id3": "^0.2.1"
+  }
+}
