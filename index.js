@@ -25,8 +25,6 @@ rl.question("Enter path of mp3 file: ", function(filepath) {
                     let lyrics = resp.toString()
 
                     const tags = {
-                        title: title,
-                        artist: artist,
                         USLT: {
                             language: "eng",
                             text: lyrics
