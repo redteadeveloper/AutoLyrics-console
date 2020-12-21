@@ -1,4 +1,4 @@
-# AutoLyrics
+# AutoLyrics-console
 
 ## About
 
